@@ -10,17 +10,15 @@ app.get('/',(req,res)=>{
     res.send('首頁')
 });
 
-app.post('/api/todos',(req,res)=>{
+app.post('/api/users',(req,res)=>{
     const newTodos={
-        id:todos.length+1,
-        title: "學習 Express",
-    completed: false
-    createdAt: "2024-03-20T10:00:00.000Z"
+        id:users.length+1,
+        phone:req.body.phone
     };
-    users.push(newTodos);
+    users.push(newUser);
     res.status(201).json({//200跟201的差異是201是建立新的資源
         message:'使用者已建立',
-        todos:newTodos
+        user:newUser
     });
 });
 //PUT
